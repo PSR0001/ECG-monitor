@@ -1,1 +1,1 @@
-# ECG-monitor
+# Atmega16A

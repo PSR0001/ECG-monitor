@@ -13,8 +13,8 @@
 *   ADC.h is interrupt based adc is used.
 ****/
 #include <stdint.h>
-
-
+#define REFMVOLTS 5000
+#define ADC_RESOLUTION_BIT 10
 
 
 void ADC_Init()
@@ -23,7 +23,7 @@ void ADC_Init()
 	ADMUX = 0x40;			// V ref: A vcc, ADC channel: 1 */
 
 	ADCSRA|= (1<<ADEN)  | (1<<ADPS1) | (1<<ADPS0); //ADC Enable, Set Pre scalar 8, Local Interrupt Enable
-	ADMUX|=(1<<REFS0); //Ref. voltage set to AVcc
+	//ADMUX|=(1<<REFS0); //Ref. voltage set to AVcc
 }
 
 
@@ -42,6 +42,10 @@ int ADC_Read(char channel)
 	
 	Ain = Ain + AinLow;				
 	return(Ain);			// Return digital value
+}
+
+int32_t ADC_counts_to_mV(int16_t count){
+	return ((int32_t)count* REFMVOLTS)/(1<< ADC_RESOLUTION_BIT);
 }
 
 

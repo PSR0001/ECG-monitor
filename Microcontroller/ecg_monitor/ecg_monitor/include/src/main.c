@@ -46,7 +46,7 @@ int main()
 		UART_SendString(adc_value_char);
 		LCD_String_xy(2,1,adc_value_char);	
 		
-		_delay_ms(2000);
+		_delay_ms(200);
 		
 	}
 }

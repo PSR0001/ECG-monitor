@@ -107,4 +107,20 @@ void LCD_Clear()
 	LCD_Command (LCD_Cursor_Home);		
 }
 
+void LCD_Custom_Char (unsigned char loc, unsigned char *msg)
+{
+	unsigned char i;
+	if(loc<8)
+	{
+		LCD_Command (0x40 + (loc*8));	// Command 0x40 and onwards forces the device to point CGRAM address
+		for(i=0;i<8;i++)	// Write 8 byte for generation of 1 character
+		LCD_Char(msg[i]);
+	}
+}
+
+
+
+
+
+
 #endif /* LIQUIDCRYSTAL_LCD_H_ */

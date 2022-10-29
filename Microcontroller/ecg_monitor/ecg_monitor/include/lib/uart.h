@@ -27,8 +27,28 @@ unsigned char UART_RxChar()
 void UART_TxChar(char ch)
 {
 	while (! (UCSRA & (1<<UDRE)));
-	UDR = ch;
+	UDR = ch; // 8bit uint8_t
 }
+
+
+// Testing Function
+void UART_TxInt(uint8_t in)
+{
+	while (! (UCSRA & (1<<UDRE)));
+	UDR = in;
+}
+void UART_SendString(uint8_t *str)
+{
+	uint8_t j=0;
+	
+	while (str[j]!=0)
+	{
+		UART_TxInt(str[j]);
+		j++;
+	}
+}
+
+//============================================
 
 void UART_SendString(char *str)
 {

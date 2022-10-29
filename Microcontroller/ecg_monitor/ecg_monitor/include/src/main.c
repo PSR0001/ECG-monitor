@@ -76,7 +76,7 @@ int main()
 				_delay_ms(1);
 				
 				//LCD_String_xy(1,0,adc_value_char);	
-				_delay_ms(10);
+				_delay_ms(100);
 			}
 		}
 		else{
@@ -87,6 +87,7 @@ int main()
 
 // Interrupt Handling...
 ISR(INT0_vect){
+	_delay_ms(35);
 	if(button_value == 1){
 		button_value=0;
 		LED_PORT &= ~(1<<1);

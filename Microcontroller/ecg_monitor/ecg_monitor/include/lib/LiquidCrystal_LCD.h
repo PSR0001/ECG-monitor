@@ -107,6 +107,9 @@ void LCD_Clear()
 	LCD_Command (LCD_Cursor_Home);		
 }
 
+
+
+// Testing--
 void LCD_Custom_Char (unsigned char loc, unsigned char *msg)
 {
 	unsigned char i;

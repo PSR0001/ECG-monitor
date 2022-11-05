@@ -4,7 +4,9 @@
  * Created: 28-10-2022 
  *  Author: 91974
  */ 
-
+/*
+Future Use
+*/
 
 #ifndef LCD_CUSTOM _CHAR_H_
 #define LCD_CUSTOM _CHAR_H_
